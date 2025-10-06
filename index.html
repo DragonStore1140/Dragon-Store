@@ -3,374 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DragonStore - Toko Aplikasi Premium</title>
+    <title>Dragon-Store - Aplikasi & Jasa Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #6a11cb;
-            --secondary: #2575fc;
-            --dark: #121212;
-            --dark-light: #1e1e1e;
-            --light: #f8f9fa;
-            --success: #28a745;
-            --danger: #dc3545;
-            --warning: #ffc107;
-        }
-
+        /* Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-bg: #0D0D0D;
+            --primary-text: #FFFFFF;
+            --accent: #FF2E2E;
+            --card-bg: #1A1A1A;
+            --hover-glow: 0 0 15px rgba(255, 46, 46, 0.7);
         }
 
         body {
-            background: linear-gradient(135deg, var(--dark), var(--dark-light));
-            color: var(--light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
             line-height: 1.6;
         }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
+        /* Header Styles */
         header {
-            background: rgba(18, 18, 18, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, var(--primary-bg) 0%, #1A1A1A 100%);
+            padding: 1.5rem 0;
+            text-align: center;
+            border-bottom: 2px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
         }
 
-        .header-content {
+        .logo-container {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo img {
-            width: 50px;
-            height: 50px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--primary);
+            border: 2px solid var(--accent);
         }
 
-        .logo h1 {
-            font-size: 1.8rem;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .store-title {
+            font-size: 2.5rem;
             font-weight: 700;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        nav a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: var(--secondary);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .admin-btn {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: transform 0.3s;
-        }
-
-        .admin-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .hero {
-            padding: 100px 0;
-            text-align: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            border-radius: 0 0 20px 20px;
-        }
-
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(90deg, var(--accent), #FF6B6B);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .hero p {
+        .tagline {
             font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: #ddd;
+            color: #CCCCCC;
+            margin-top: 0.5rem;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(106, 17, 203, 0.4);
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(106, 17, 203, 0.6);
+        section {
+            margin-bottom: 3rem;
         }
 
         .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
             text-align: center;
-            margin: 60px 0 40px;
-            font-size: 2.2rem;
             position: relative;
+            padding-bottom: 0.5rem;
         }
 
         .section-title::after {
             content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            margin: 10px auto;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--accent);
             border-radius: 2px;
         }
 
+        /* Products Grid */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 25px;
-            margin-bottom: 80px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
 
-        .product-item {
-            background: var(--dark-light);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: 1px solid #333;
             cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .product-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            border-color: var(--primary);
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--hover-glow);
+            border-color: var(--accent);
         }
 
         .product-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 15px;
+            width: 100%;
+            height: 180px;
             object-fit: cover;
-            margin: 0 auto 15px;
-            border: 2px solid var(--primary);
+            background-color: #2A2A2A;
+        }
+
+        .product-info {
+            padding: 1.5rem;
         }
 
         .product-name {
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 5px;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-text);
         }
 
-        .testimonials {
-            margin-bottom: 80px;
+        .product-type {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
         }
 
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-details {
+            color: #CCCCCC;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Testimonials Section - REVISI (TANPA MODAL) */
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
         }
 
-        .testimonial-item {
-            background: var(--dark-light);
-            border-radius: 10px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-        }
-
-        .testimonial-img-container {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            border-radius: 10px;
+        .testimonial-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
             overflow: hidden;
-            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: 1px solid #333;
+            transition: all 0.3s ease;
         }
 
-        .testimonial-img {
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent);
+        }
+
+        .testimonial-proof {
             width: 100%;
-            height: 100%;
+            height: 300px;
             object-fit: cover;
-            transition: transform 0.3s;
+            border-bottom: 2px solid var(--accent);
         }
 
-        .testimonial-item:hover .testimonial-img {
-            transform: scale(1.05);
+        .testimonial-info {
+            padding: 1.5rem;
         }
 
-        .testimonial-caption {
-            font-style: italic;
-            color: #ccc;
-        }
-
-        .faq {
-            margin-bottom: 80px;
-        }
-
-        .faq-item {
-            background: var(--dark-light);
-            border-radius: 10px;
-            margin-bottom: 15px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .faq-question {
-            padding: 20px;
-            cursor: pointer;
+        .testimonial-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary-text);
+        }
+
+        .testimonial-product {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        .testimonial-status {
+            background: linear-gradient(90deg, #00C851, #007E33);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
             font-weight: 600;
         }
 
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s, padding 0.3s;
+        .testimonial-text {
+            font-style: italic;
+            color: #CCCCCC;
+            line-height: 1.5;
+            border-left: 3px solid var(--accent);
+            padding-left: 1rem;
         }
 
-        .faq-item.active .faq-answer {
-            padding: 0 20px 20px;
-            max-height: 500px;
+        /* Rules Section */
+        .rules-container {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #333;
         }
 
-        .faq-toggle {
-            transition: transform 0.3s;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        footer {
-            background: var(--dark);
-            padding: 40px 0 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-content {
+        .rule-item {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 30px;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
         }
 
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 20px;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-            color: var(--secondary);
-        }
-
-        .footer-section p, .footer-section a {
-            color: #bbb;
-            margin-bottom: 10px;
-            display: block;
-            text-decoration: none;
-        }
-
-        .footer-section a:hover {
-            color: var(--secondary);
-        }
-
-        .social-links {
+        .rule-number {
+            background-color: var(--accent);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
             display: flex;
-            gap: 15px;
-        }
-
-        .social-links a {
-            display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--dark-light);
-            border-radius: 50%;
-            transition: background 0.3s, transform 0.3s;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
         }
 
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
+        .rule-text {
+            flex: 1;
+            color: #CCCCCC;
         }
 
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #888;
-            font-size: 0.9rem;
-        }
-
+        /* Modal untuk detail produk */
         .modal {
             display: none;
             position: fixed;
@@ -378,962 +274,431 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 1rem;
         }
 
         .modal-content {
-            background: var(--dark-light);
-            border-radius: 15px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
             max-width: 500px;
             width: 100%;
-            padding: 30px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: modalAppear 0.3s ease-out;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--accent);
+            overflow: hidden;
+            animation: modalFadeIn 0.3s ease;
         }
 
-        @keyframes modalAppear {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #aaa;
-            transition: color 0.3s;
-        }
-
-        .close-modal:hover {
-            color: var(--light);
-        }
-
-        .modal-product {
-            text-align: center;
-        }
-
-        .modal-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 20px;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 3px solid var(--primary);
-        }
-
-        .modal-title {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        .modal-duration {
-            display: inline-block;
-            background: rgba(106, 17, 203, 0.2);
-            color: var(--primary);
-            padding: 5px 15px;
-            border-radius: 20px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .modal-price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--secondary);
-        }
-
-        .modal-description {
-            margin-bottom: 25px;
-            color: #ccc;
-            line-height: 1.6;
-        }
-
-        .buy-button {
-            display: block;
-            width: 100%;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+        .modal-header {
+            padding: 1.5rem;
+            background: linear-gradient(90deg, var(--accent), #FF6B6B);
             color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .buy-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
-        }
-
-        .admin-panel {
-            display: none;
-            background: var(--dark-light);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .admin-panel h2 {
-            margin-bottom: 25px;
-            text-align: center;
-            color: var(--secondary);
-        }
-
-        .admin-tabs {
-            display: flex;
-            margin-bottom: 25px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .admin-tab {
-            padding: 12px 20px;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s;
-        }
-
-        .admin-tab.active {
-            border-bottom: 3px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .admin-content {
-            display: none;
-        }
-
-        .admin-content.active {
-            display: block;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            color: var(--light);
-            font-size: 1rem;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .btn {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .btn-primary {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
-        }
-
-        .btn-danger {
-            background: var(--danger);
-            color: white;
-        }
-
-        .btn-sm {
-            padding: 8px 15px;
-            font-size: 0.9rem;
-        }
-
-        .admin-list {
-            margin-top: 25px;
-        }
-
-        .admin-item {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .admin-item img {
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
-            object-fit: cover;
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
         }
 
-        .admin-actions {
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .close-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-detail {
+            margin-bottom: 1rem;
             display: flex;
-            gap: 10px;
         }
 
-        .login-modal {
-            display: none;
+        .modal-detail-label {
+            font-weight: 600;
+            width: 120px;
+            color: #CCCCCC;
         }
 
-        .login-content {
-            max-width: 400px;
+        .modal-detail-value {
+            flex: 1;
+            color: var(--primary-text);
         }
 
-        .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top: 4px solid var(--primary);
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .status-message {
-            padding: 10px 15px;
-            border-radius: 5px;
-            margin: 10px 0;
+        .buy-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(90deg, var(--accent), #FF6B6B);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
             text-align: center;
+            text-decoration: none;
         }
 
-        .status-success {
-            background: rgba(40, 167, 69, 0.2);
-            color: #28a745;
-            border: 1px solid #28a745;
+        .buy-btn:hover {
+            background: linear-gradient(90deg, #FF6B6B, var(--accent));
+            box-shadow: 0 5px 15px rgba(255, 46, 46, 0.4);
+            transform: translateY(-2px);
         }
 
-        .status-error {
-            background: rgba(220, 53, 69, 0.2);
-            color: #dc3545;
-            border: 1px solid #dc3545;
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1A1A1A 0%, var(--primary-bg) 100%);
+            padding: 3rem 2rem 2rem;
+            border-top: 2px solid var(--accent);
         }
 
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            color: var(--accent);
+            margin-right: 0.8rem;
+            margin-top: 0.2rem;
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .hours-list .day {
+            color: #CCCCCC;
+        }
+
+        .hours-list .time {
+            color: var(--primary-text);
+            font-weight: 500;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            .header-content {
+            .store-title {
+                font-size: 2rem;
+            }
+            
+            .products-grid, .testimonials-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            main {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-container {
                 flex-direction: column;
-                gap: 15px;
+                text-align: center;
             }
             
-            nav ul {
-                gap: 15px;
-            }
-            
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-            
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            }
-            
-            .footer-section {
-                min-width: 100%;
-            }
-            
-            .admin-tabs {
-                flex-wrap: wrap;
+            .store-title {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="https://deposit.pictures/media/images/28/bd/51/28bd515efd774227b4e6c613f6348988.jpg" alt="DragonStore Logo">
-                    <h1>DragonStore</h1>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#home">Beranda</a></li>
-                        <li><a href="#products">Produk</a></li>
-                        <li><a href="#testimonials">Testimoni</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                    </ul>
-                </nav>
-                <button class="admin-btn" id="adminLoginBtn">
-                    <i class="fas fa-user-shield"></i> Admin
-                </button>
+        <div class="logo-container">
+            <img src="https://deposit.pictures/media/images/28/bd/51/28bd515efd774227b4e6c613f6348988.jpg" alt="Dragon-Store Logo" class="logo">
+            <div>
+                <h1 class="store-title">Dragon-Store</h1>
+                <p class="tagline">Aplikasi & Jasa Premium Terpercaya</p>
             </div>
         </div>
     </header>
 
-    <section class="hero" id="home">
-        <div class="container">
-            <h2>Akses Premium dengan Mudah</h2>
-            <p>DragonStore menyediakan berbagai aplikasi premium berkualitas dengan harga terjangkau. Nikmati fitur lengkap tanpa batas!</p>
-            <a href="#products" class="cta-button">Lihat Produk</a>
-        </div>
-    </section>
-
-    <section id="products">
-        <div class="container">
-            <h2 class="section-title">Produk Kami</h2>
-            <div class="products-grid" id="productsGrid">
-                <div class="spinner"></div>
+    <main>
+        <section id="products">
+            <h2 class="section-title">Produk & Jasa Premium</h2>
+            <div class="products-grid" id="products-container">
+                <!-- Produk akan dimuat dari product.js -->
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <h2 class="section-title">Bukti Pembelian</h2>
-            <div class="testimonials-grid" id="testimonialsGrid">
-                <div class="spinner"></div>
+        <section id="testimonials">
+            <h2 class="section-title">Bukti Transaksi</h2>
+            <div class="testimonials-grid" id="testimonials-container">
+                <!-- Testimoni akan dimuat dari testimoni.js -->
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="faq" id="faq">
-        <div class="container">
-            <h2 class="section-title">Pertanyaan Umum</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Bagaimana cara pembelian?</span>
-                        <i class="fas fa-chevron-down faq-toggle"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Klik produk yang ingin dibeli, lalu tekan tombol "Beli Sekarang". Anda akan diarahkan ke WhatsApp untuk konfirmasi pembelian.</p>
-                    </div>
+        <section id="rules">
+            <h2 class="section-title">Ketentuan Layanan</h2>
+            <div class="rules-container">
+                <div class="rule-item">
+                    <div class="rule-number">1</div>
+                    <p class="rule-text">Akun diproses paling lama 24 jam setelah pembayaran dikonfirmasi.</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Berapa lama proses pengiriman?</span>
-                        <i class="fas fa-chevron-down faq-toggle"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Biasanya proses pengiriman dilakukan dalam waktu 1-2 jam setelah pembayaran dikonfirmasi. Maksimal 24 jam.</p>
-                    </div>
+                <div class="rule-item">
+                    <div class="rule-number">2</div>
+                    <p class="rule-text">Refund hanya berlaku jika akun belum diproses setelah 24 jam.</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Apakah ada garansi?</span>
-                        <i class="fas fa-chevron-down faq-toggle"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Ya, semua produk kami memiliki garansi sesuai dengan durasi yang dipilih. Jika ada masalah, silakan hubungi admin.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Bagaimana jika akun premium tidak aktif?</span>
-                        <i class="fas fa-chevron-down faq-toggle"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Segera hubungi admin dengan menyertakan bukti pembelian. Kami akan melakukan perbaikan atau penggantian jika garansi masi berlaku.</p>
-                    </div>
+                <div class="rule-item">
+                    <div class="rule-number">3</div>
+                    <p class="rule-text">Tidak bisa klaim garansi jika bukan kesalahan admin atau penyalahgunaan oleh pembeli.</p>
                 </div>
             </div>
+        </section>
+    </main>
+
+    <!-- Modal untuk detail produk -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-product-name">Nama Produk</h3>
+                <button class="close-btn" id="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-detail">
+                    <span class="modal-detail-label">Harga:</span>
+                    <span class="modal-detail-value" id="modal-price">-</span>
+                </div>
+                <div class="modal-detail">
+                    <span class="modal-detail-label">Durasi:</span>
+                    <span class="modal-detail-value" id="modal-duration">-</span>
+                </div>
+                <div class="modal-detail">
+                    <span class="modal-detail-label">Garansi:</span>
+                    <span class="modal-detail-value" id="modal-warranty">-</span>
+                </div>
+                <div class="modal-detail">
+                    <span class="modal-detail-label">Informasi:</span>
+                    <span class="modal-detail-value" id="modal-info">-</span>
+                </div>
+                <a href="#" class="buy-btn" id="buy-button" target="_blank">Beli Sekarang</a>
+            </div>
         </div>
-    </section>
+    </div>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>DragonStore</h3>
-                    <p>Toko aplikasi premium terpercaya dengan pelayanan terbaik untuk kebutuhan digital Anda.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Kontak</h3>
-                    <p><i class="fas fa-envelope"></i> mdkyouko@gmail.com/p>
-                    <p><i class="fas fa-phone"></i> +62 897-8116-653</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Ikuti Kami</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Kontak Kami</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp: 08978116653</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>Email: mdkyouko@gmail.com</span>
+                    </li>
+                </ul>
             </div>
-            <div class="copyright">
-                &copy; 2023 DragonStore. All rights reserved.
+            <div class="footer-section">
+                <h3>Jam Operasional</h3>
+                <ul class="hours-list">
+                    <li>
+                        <span class="day">Senin - Kamis:</span>
+                        <span class="time">14:30 - 21:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Jumat:</span>
+                        <span class="time">13:00 - 21:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Sabtu - Minggu:</span>
+                        <span class="time">08:00 - 21:00</span>
+                    </li>
+                </ul>
             </div>
+            <div class="footer-section">
+                <h3>Tentang Dragon-Store</h3>
+                <p>Dragon-Store menyediakan aplikasi dan jasa premium berkualitas dengan garansi terpercaya. Kami berkomitmen memberikan pelayanan terbaik untuk kepuasan pelanggan.</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Dragon-Store. All rights reserved.</p>
         </div>
     </footer>
 
-    <div class="modal" id="productModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-product">
-                <img id="modalIcon" src="" alt="Product Icon" class="modal-icon">
-                <h3 id="modalTitle" class="modal-title">Product Name</h3>
-                <span id="modalDuration" class="modal-duration">Lifetime</span>
-                <p id="modalPrice" class="modal-price">Rp 99.000</p>
-                <p id="modalDescription" class="modal-description">Product description goes here.</p>
-                <button id="buyButton" class="buy-button">Beli Sekarang</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal login-modal" id="adminLoginModal">
-        <div class="modal-content login-content">
-            <span class="close-modal">&times;</span>
-            <h2 style="text-align: center; margin-bottom: 25px;">Login Admin</h2>
-            <div class="form-group">
-                <label for="adminPin">PIN Admin</label>
-                <input type="password" id="adminPin" class="form-control" placeholder="Masukkan PIN">
-            </div>
-            <button id="loginBtn" class="btn btn-primary" style="width: 100%;">Login</button>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="admin-panel" id="adminPanel">
-            <h2>Panel Admin DragonStore</h2>
-            <div id="adminStatus"></div>
-            <div class="admin-tabs">
-                <div class="admin-tab active" data-tab="products">Kelola Produk</div>
-                <div class="admin-tab" data-tab="testimonials">Kelola Testimoni</div>
-                <div class="admin-tab" data-tab="settings">Pengaturan</div>
-            </div>
-
-            <div class="admin-content active" id="productsTab">
-                <h3>Tambah Produk Baru</h3>
-                <form id="addProductForm">
-                    <div class="form-group">
-                        <label for="productIcon">URL Icon</label>
-                        <input type="text" id="productIcon" class="form-control" placeholder="https://example.com/icon.jpg" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="productName">Nama Aplikasi</label>
-                        <input type="text" id="productName" class="form-control" placeholder="Nama aplikasi" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="productDuration">Durasi Premium</label>
-                        <input type="text" id="productDuration" class="form-control" placeholder="Contoh: 1 Bulan, Lifetime" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="productPrice">Harga</label>
-                        <input type="text" id="productPrice" class="form-control" placeholder="Contoh: Rp 99.000" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="productDescription">Deskripsi</label>
-                        <textarea id="productDescription" class="form-control" rows="3" placeholder="Deskripsi aplikasi" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="productWALink">Link WhatsApp</label>
-                        <input type="text" id="productWALink" class="form-control" placeholder="https://wa.me/6281234567890?text=..." required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Tambah Produk</button>
-                </form>
-
-                <div class="admin-list" id="productsList"></div>
-            </div>
-
-            <div class="admin-content" id="testimonialsTab">
-                <h3>Tambah Bukti Pembelian</h3>
-                <form id="addTestimonialForm">
-                    <div class="form-group">
-                        <label for="testimonialImage">URL Gambar</label>
-                        <input type="text" id="testimonialImage" class="form-control" placeholder="https://example.com/image.jpg" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="testimonialCaption">Keterangan</label>
-                        <textarea id="testimonialCaption" class="form-control" rows="3" placeholder="Keterangan bukti pembelian" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Tambah Bukti</button>
-                </form>
-
-                <div class="admin-list" id="testimonialsList"></div>
-            </div>
-
-            <div class="admin-content" id="settingsTab">
-                <h3>Pengaturan Database</h3>
-                <div class="form-group">
-                    <p><strong>Status:</strong> <span id="dbStatus">Mengecek...</span></p>
-                    <p><strong>Sumber Data:</strong> <span id="dataSource">Loading...</span></p>
-                </div>
-                <div class="form-group">
-                    <button id="refreshDataBtn" class="btn btn-primary">Refresh Data</button>
-                    <button id="resetDataBtn" class="btn btn-danger">Reset Data</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // =====================
-        // DATABASE GLOBAL GRATIS
-        // =====================
-        const JSONBIN_CONFIG = {
-            binId: "67e3e1f2acd3cb34a9918a12",
-            apiKey: "$2a$10$6L5H8vVqYbW9xRfT2nM4uQ"
-        };
-
-        const DEFAULT_DATA = {
-            products: [
-                {
-                    id: 1,
-                    icon: "https://via.placeholder.com/100",
-                    name: "Alight Motion Premium", 
-                    duration: "1 Tahun",
-                    price: "Rp 150.000",
-                    description: "Aplikasi edit video premium dengan fitur lengkap",
-                    waLink: "https://wa.me/628978116653?text=Halo%20Admin%20DragonStore!%0A%0ASaya%20ingin%20membeli%20Alight%20Motion%20Premium%201%20Tahun.%0A%0ANama%20:%0AEmail%20:%0AMetode%20Pembayaran%20:%0A%0ATolong%20diproses,%20terima%20kasih!"
-                }
-            ],
-            testimonials: [
-                {
-                    id: 1,
-                    image: "https://via.placeholder.com/300/6a11cb/ffffff?text=Testimonial+1",
-                    caption: "Pelayanan cepat dan akun premium berjalan lancar!"
-                }
-            ]
-        };
-
-        let products = [];
-        let testimonials = [];
-        let currentDataSource = 'local';
+    <script type="module">
+        import products from './product.js';
+        import testimonies from './testimoni.js';
 
         // DOM Elements
-        const productsGrid = document.getElementById('productsGrid');
-        const testimonialsGrid = document.getElementById('testimonialsGrid');
-        const productModal = document.getElementById('productModal');
-        const adminLoginModal = document.getElementById('adminLoginModal');
-        const adminPanel = document.getElementById('adminPanel');
-        const adminLoginBtn = document.getElementById('adminLoginBtn');
-        const loginBtn = document.getElementById('loginBtn');
-        const addProductForm = document.getElementById('addProductForm');
-        const addTestimonialForm = document.getElementById('addTestimonialForm');
-        const productsList = document.getElementById('productsList');
-        const testimonialsList = document.getElementById('testimonialsList');
-        const closeModals = document.querySelectorAll('.close-modal');
-        const adminTabs = document.querySelectorAll('.admin-tab');
-        const adminContents = document.querySelectorAll('.admin-content');
-        const adminStatus = document.getElementById('adminStatus');
-        const dbStatus = document.getElementById('dbStatus');
-        const dataSource = document.getElementById('dataSource');
-        const refreshDataBtn = document.getElementById('refreshDataBtn');
-        const resetDataBtn = document.getElementById('resetDataBtn');
+        const productsContainer = document.getElementById('products-container');
+        const testimonialsContainer = document.getElementById('testimonials-container');
+        const modal = document.getElementById('product-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const modalProductName = document.getElementById('modal-product-name');
+        const modalDuration = document.getElementById('modal-duration');
+        const modalPrice = document.getElementById('modal-price');
+        const modalWarranty = document.getElementById('modal-warranty');
+        const modalInfo = document.getElementById('modal-info');
+        const buyButton = document.getElementById('buy-button');
 
-        // =====================
-        // FUNGSI DATABASE
-        // =====================
-
-        async function loadData() {
-            showLoading(productsGrid);
-            showLoading(testimonialsGrid);
-            
-            try {
-                // Coba load dari JSONBin.io (Database Global)
-                const response = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_CONFIG.binId}/latest`);
-                
-                if (response.ok) {
-                    const result = await response.json();
-                    const data = result.record;
-                    
-                    products = data.products || [];
-                    testimonials = data.testimonials || [];
-                    currentDataSource = 'global';
-                    
-                    showAdminMessage('✅ Data berhasil dimuat dari Database Global', 'success');
-                } else {
-                    throw new Error('Failed to load from global database');
-                }
-            } catch (error) {
-                // Fallback ke localStorage
-                const localProducts = localStorage.getItem('dragonstore_products');
-                const localTestimonials = localStorage.getItem('dragonstore_testimonials');
-                
-                if (localProducts || localTestimonials) {
-                    products = localProducts ? JSON.parse(localProducts) : DEFAULT_DATA.products;
-                    testimonials = localTestimonials ? JSON.parse(localTestimonials) : DEFAULT_DATA.testimonials;
-                    currentDataSource = 'local';
-                    showAdminMessage('📱 Menggunakan data dari penyimpanan lokal', 'success');
-                } else {
-                    products = [...DEFAULT_DATA.products];
-                    testimonials = [...DEFAULT_DATA.testimonials];
-                    currentDataSource = 'default';
-                    showAdminMessage('⚡ Menggunakan data default', 'error');
-                }
-            }
-            
-            updateDataSourceInfo();
-            renderAll();
-        }
-
-        async function saveData() {
-            const data = {
-                products,
-                testimonials,
-                lastUpdated: new Date().toISOString()
-            };
-
-            // Simpan ke localStorage
-            localStorage.setItem('dragonstore_products', JSON.stringify(products));
-            localStorage.setItem('dragonstore_testimonials', JSON.stringify(testimonials));
-            
-            // Simpan ke database global
-            try {
-                const response = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_CONFIG.binId}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Master-Key': JSONBIN_CONFIG.apiKey
-                    },
-                    body: JSON.stringify(data)
-                });
-
-                if (response.ok) {
-                    currentDataSource = 'global';
-                    showAdminMessage('✅ Data berhasil disimpan ke Database Global', 'success');
-                } else {
-                    throw new Error('Failed to save to global database');
-                }
-            } catch (error) {
-                currentDataSource = 'local';
-                showAdminMessage('📱 Data disimpan secara lokal saja', 'error');
-            }
-            
-            updateDataSourceInfo();
-        }
-
-        function updateDataSourceInfo() {
-            if (dbStatus) dbStatus.textContent = currentDataSource === 'global' ? 
-                'Terhubung ke Database Global' : 'Menggunakan Penyimpanan Lokal';
-            if (dataSource) dataSource.textContent = currentDataSource === 'global' ? 
-                'Database Global' : 'Penyimpanan Lokal';
-        }
-
-        // =====================
-        // FUNGSI RENDER
-        // =====================
-
-        function renderAll() {
-            renderProducts();
-            renderTestimonials();
-            if (adminPanel.style.display === 'block') {
-                renderAdminProducts();
-                renderAdminTestimonials();
-            }
-        }
-
-        function renderProducts() {
-            productsGrid.innerHTML = '';
-            
-            if (products.length === 0) {
-                productsGrid.innerHTML = '<p style="text-align: center; grid-column: 1/-1; color: #888;">Belum ada produk yang tersedia.</p>';
-                return;
-            }
+        // Load Products
+        function loadProducts() {
+            productsContainer.innerHTML = '';
             
             products.forEach(product => {
-                const productElement = document.createElement('div');
-                productElement.className = 'product-item';
-                productElement.innerHTML = `
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.setAttribute('data-product', JSON.stringify(product));
+                
+                const typeText = product.type === 'app' ? 'Aplikasi' : 'Jasa';
+                
+                productCard.innerHTML = `
                     <img src="${product.icon}" alt="${product.name}" class="product-icon">
-                    <div class="product-name">${product.name}</div>
-                `;
-                productElement.addEventListener('click', () => openProductModal(product));
-                productsGrid.appendChild(productElement);
-            });
-        }
-
-        function renderTestimonials() {
-            testimonialsGrid.innerHTML = '';
-            
-            if (testimonials.length === 0) {
-                testimonialsGrid.innerHTML = '<p style="text-align: center; grid-column: 1/-1; color: #888;">Belum ada testimonial yang tersedia.</p>';
-                return;
-            }
-            
-            testimonials.forEach(testimonial => {
-                const testimonialElement = document.createElement('div');
-                testimonialElement.className = 'testimonial-item';
-                testimonialElement.innerHTML = `
-                    <div class="testimonial-img-container">
-                        <img src="${testimonial.image}" alt="Testimonial" class="testimonial-img">
+                    <div class="product-info">
+                        <h3 class="product-name">${product.name}</h3>
+                        <span class="product-type">${typeText}</span>
+                        <div class="product-price">${product.price}</div>
+                        <div class="product-details">${product.duration}</div>
+                        <div class="product-details">${product.warranty}</div>
                     </div>
-                    <p class="testimonial-caption">${testimonial.caption}</p>
                 `;
-                testimonialsGrid.appendChild(testimonialElement);
+                
+                productCard.addEventListener('click', () => openProductModal(product));
+                productsContainer.appendChild(productCard);
             });
         }
 
-        function renderAdminProducts() {
-            productsList.innerHTML = '';
+        // Load Testimonials - REVISI (TANPA MODAL)
+        function loadTestimonials() {
+            testimonialsContainer.innerHTML = '';
             
-            products.forEach(product => {
-                const productElement = document.createElement('div');
-                productElement.className = 'admin-item';
-                productElement.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 15px;">
-                        <img src="${product.icon}" alt="${product.name}">
-                        <div>
-                            <div style="font-weight: 600;">${product.name}</div>
-                            <div style="font-size: 0.9rem; color: #aaa;">${product.duration} - ${product.price}</div>
+            testimonies.forEach(testimony => {
+                const testimonialCard = document.createElement('div');
+                testimonialCard.className = 'testimonial-card';
+                
+                testimonialCard.innerHTML = `
+                    <img src="${testimony.image}" alt="Bukti Transaksi ${testimony.name}" class="testimonial-proof">
+                    <div class="testimonial-info">
+                        <div class="testimonial-header">
+                            <div>
+                                <div class="testimonial-name">${testimony.name}</div>
+                                <div class="testimonial-product">${testimony.product}</div>
+                            </div>
+                            <div class="testimonial-status">DONE</div>
                         </div>
-                    </div>
-                    <div class="admin-actions">
-                        <button class="btn btn-primary btn-sm edit-product" data-id="${product.id}">Edit</button>
-                        <button class="btn btn-danger btn-sm delete-product" data-id="${product.id}">Hapus</button>
+                        <p class="testimonial-text">"${testimony.info}"</p>
                     </div>
                 `;
-                productsList.appendChild(productElement);
-            });
-
-            document.querySelectorAll('.edit-product').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const productId = parseInt(e.target.dataset.id);
-                    editProduct(productId);
-                });
-            });
-
-            document.querySelectorAll('.delete-product').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const productId = parseInt(e.target.dataset.id);
-                    deleteProduct(productId);
-                });
+                
+                // TIDAK ADA EVENT CLICK UNTUK TESTIMONI
+                testimonialsContainer.appendChild(testimonialCard);
             });
         }
 
-        function renderAdminTestimonials() {
-            testimonialsList.innerHTML = '';
-            
-            testimonials.forEach(testimonial => {
-                const testimonialElement = document.createElement('div');
-                testimonialElement.className = 'admin-item';
-                testimonialElement.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 15px;">
-                        <img src="${testimonial.image}" alt="Testimonial" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
-                        <div style="max-width: 300px;">
-                            <div style="font-weight: 600;">Bukti Pembelian</div>
-                            <div style="font-size: 0.9rem; color: #aaa;">${testimonial.caption}</div>
-                        </div>
-                    </div>
-                    <div class="admin-actions">
-                        <button class="btn btn-danger btn-sm delete-testimonial" data-id="${testimonial.id}">Hapus</button>
-                    </div>
-                `;
-                testimonialsList.appendChild(testimonialElement);
-            });
-
-            document.querySelectorAll('.delete-testimonial').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const testimonialId = parseInt(e.target.dataset.id);
-                    deleteTestimonial(testimonialId);
-                });
-            });
-        }
-
+        // Open Product Modal
         function openProductModal(product) {
-            document.getElementById('modalIcon').src = product.icon;
-            document.getElementById('modalTitle').textContent = product.name;
-            document.getElementById('modalDuration').textContent = product.duration;
-            document.getElementById('modalPrice').textContent = product.price;
-            document.getElementById('modalDescription').textContent = product.description;
+            modalProductName.textContent = product.name;
+            modalPrice.textContent = product.price;
+            modalDuration.textContent = product.duration;
+            modalWarranty.textContent = product.warranty;
+            modalInfo.textContent = product.info;
             
-            const buyButton = document.getElementById('buyButton');
-            buyButton.onclick = () => {
-                window.open(product.waLink, '_blank');
-            };
+            // Set WhatsApp link
+            const message = `Halo Admin Dragon-Store, saya ingin membeli produk ${product.name}`;
+            const encodedMessage = encodeURIComponent(message);
+            buyButton.href = `https://wa.me/628978116653?text=${encodedMessage}`;
             
-            productModal.style.display = 'flex';
+            modal.style.display = 'flex';
         }
 
-        // =====================
-        // EVENT LISTENERS
-        // =====================
-
-        function setupEventListeners() {
-            adminLoginBtn.addEventListener('click', () => {
-                adminLoginModal.style.display = 'flex';
-            });
-
-            loginBtn.addEventListener('click', () => {
-                const pin = document.getElementById('adminPin').value;
-                if (pin === '858621') {
-                    adminLoginModal.style.display = 'none';
-                    adminPanel.style.display = 'block';
-                    renderAdminProducts();
-                    renderAdminTestimonials();
-                    document.getElementById('adminPin').value = '';
-                    showAdminMessage('Login berhasil!', 'success');
-                } else {
-                    alert('PIN salah! Coba lagi.');
-                }
-            });
-
-            closeModals.forEach(closeBtn => {
-                closeBtn.addEventListener('click', () => {
-                    productModal.style.display = 'none';
-                    adminLoginModal.style.display = 'none';
-                });
-            });
-
-            window.addEventListener('click', (e) => {
-                if (e.target === productModal) productModal.style.display = 'none';
-                if (e.target === adminLoginModal) adminLoginModal.style.display = 'none';
-            });
-
-            adminTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const tabId = tab.dataset.tab;
-                    adminTabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    adminContents.forEach(content => {
-                        content.classList.remove('active');
-                        if (content.id === `${tabId}Tab`) content.classList.add('active');
-                    });
-                });
-            });
-
-            addProductForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const newProduct = {
-                    id: products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1,
-                    icon: document.getElementById('productIcon').value,
-                    name: document.getElementById('productName').value,
-                    duration: document.getElementById('productDuration').value,
-                    price: document.getElementById('productPrice').value,
-                    description: document.getElementById('productDescription').value,
-                    waLink: document.getElementById('productWALink').value
-                };
-                products.push(newProduct);
-                saveData();
-                renderProducts();
-                renderAdminProducts();
-                addProductForm.reset();
-                showAdminMessage('Produk berhasil ditambahkan!', 'success');
-            });
-
-            addTestimonialForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const newTestimonial = {
-                    id: testimonials.length > 0 ? Math.max(...testimonials.map(t => t.id)) + 1 : 1,
-                    image: document.getElementById('testimonialImage').value,
-                    caption: document.getElementById('testimonialCaption').value
-                };
-                testimonials.push(newTestimonial);
-                saveData();
-                renderTestimonials();
-                renderAdminTestimonials();
-                addTestimonialForm.reset();
-                showAdminMessage('Bukti pembelian berhasil ditambahkan!', 'success');
-            });
-
-            refreshDataBtn.addEventListener('click', () => {
-                loadData();
-                showAdminMessage('Data diperbarui!', 'success');
-            });
-
-            resetDataBtn.addEventListener('click', () => {
-                if (confirm('Reset semua data ke default?')) {
-                    products = [...DEFAULT_DATA.products];
-                    testimonials = [...DEFAULT_DATA.testimonials];
-                    saveData();
-                    renderAll();
-                    showAdminMessage('Data direset!', 'success');
-                }
-            });
+        // Close Modal
+        function closeModal() {
+            modal.style.display = 'none';
         }
 
-        function setupFAQ() {
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                question.addEventListener('click', () => {
-                    faqItems.forEach(otherItem => {
-                        if (otherItem !== item) otherItem.classList.remove('active');
-                    });
-                    item.classList.toggle('active');
-                });
-            });
-        }
-
-        function editProduct(id) {
-            const product = products.find(p => p.id === id);
-            if (!product) return;
-            document.getElementById('productIcon').value = product.icon;
-            document.getElementById('productName').value = product.name;
-            document.getElementById('productDuration').value = product.duration;
-            document.getElementById('productPrice').value = product.price;
-            document.getElementById('productDescription').value = product.description;
-            document.getElementById('productWALink').value = product.waLink;
-            products = products.filter(p => p.id !== id);
-            saveData();
-            renderProducts();
-            renderAdminProducts();
-            showAdminMessage('Produk siap diedit!', 'success');
-        }
-
-        function deleteProduct(id) {
-            if (confirm('Hapus produk ini?')) {
-                products = products.filter(p => p.id !== id);
-                saveData();
-                renderProducts();
-                renderAdminProducts();
-                showAdminMessage('Produk dihapus!', 'success');
+        // Event Listeners
+        closeModalBtn.addEventListener('click', closeModal);
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
             }
-        }
+        });
 
-        function deleteTestimonial(id) {
-            if (confirm('Hapus testimonial ini?')) {
-                testimonials = testimonials.filter(t => t.id !== id);
-                saveData();
-                renderTestimonials();
-                renderAdminTestimonials();
-                showAdminMessage('Testimonial dihapus!', 'success');
-            }
-        }
-
-        function showAdminMessage(message, type) {
-            adminStatus.innerHTML = `<div class="status-message status-${type}">${message}</div>`;
-            setTimeout(() => { adminStatus.innerHTML = ''; }, 5000);
-        }
-
-        function showLoading(element) {
-            element.innerHTML = '<div class="spinner"></div>';
-        }
-
-        // =====================
-        // INITIALIZE
-        // =====================
-        document.addEventListener('DOMContentLoaded', function() {
-            loadData();
-            setupEventListeners();
-            setupFAQ();
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProducts();
+            loadTestimonials();
         });
     </script>
 </body>
